@@ -41,7 +41,7 @@ convert() {
     }
     {
       c="";
-      for(i=1; i<=NF; i++) c=c $i",";
+      for(i=1; i<=NF-1; i++) c=c $i",";
       print c;
     }
   ' ${INPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.txt | \
