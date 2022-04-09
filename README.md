@@ -166,6 +166,12 @@ yymmdd の形式で入力してください。
 - JRDB 馬基本データ: Ukc
 - JRDB 競争馬データ: Kyi
 
+## トラブルシューティング
+
+よくあるエラーとその対応方法を以下に記載しています。
+
+[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
+
 ## おわりに
 
 追加して欲しい機能、バグ報告等の issue, PR は常にお待ちしております！
