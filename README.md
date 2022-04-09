@@ -46,12 +46,12 @@ soruce ~/.zshrc
 
 ```.env
 INPUT_DIRECTORY=${HOME}/dev/JRDB-data/files/downloaded_files/
-OUTPUT_DIRECTORY=${HOME}/dev/JRDB-data/files/converted_files/
+CONVERT_FILE_OUTPUT_DIRECTORY=${HOME}/dev/JRDB-data/files/converted_files/
 ```
 
 `INPUT_DIRECTORY` には JRDB よりダウンロードしたテキストファイルの保存先を指定してください。
 
-`OUTPUT_DIRECTORY` には作成される CSV の保存先をご指定ください。
+`CONVERT_FILE_OUTPUT_DIRECTORY` には作成される CSV の保存先をご指定ください。
 
 上記の例のように入力した場合、以下のような形で変換された CSV が作成されます。
 

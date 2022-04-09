@@ -32,7 +32,7 @@ filename_prefix() {
 
 convert() {
   header=$(header)
-  echo $header > ${OUTPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.csv
+  echo $header > ${CONVERT_FILE_OUTPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.csv
 
   gawk -v field_bytes="$(field_bytes)" '
     BEGIN{
@@ -45,18 +45,18 @@ convert() {
       print c;
     }
   ' ${INPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.txt | \
-  iconv -f CP932 -t utf8 >> ${OUTPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.csv
+  iconv -f CP932 -t utf8 >> ${CONVERT_FILE_OUTPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.csv
 }
 
 pre_process() {
-  mkdir -p ${OUTPUT_DIRECTORY}${FILETYPE}
+  mkdir -p ${CONVERT_FILE_OUTPUT_DIRECTORY}${FILETYPE}
 }
 
 main() {
   if [ -f ${INPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.txt ]; then
     pre_process
     convert
-    echo ${OUTPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.csv is created.
+    echo ${CONVERT_FILE_OUTPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.csv is created.
   else
     echo ${INPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.txt is does not exist.
   fi
