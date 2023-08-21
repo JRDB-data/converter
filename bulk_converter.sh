@@ -57,18 +57,22 @@ pre_process() {
 }
 
 main() {
-  if [ -f ${INPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.txt ]; then
-    pre_process
-    convert
-    echo ${CONVERT_FILE_OUTPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.csv is created.
-  else
-    echo ${INPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.txt is does not exist.
-  fi
+  for f in $(ls ${INPUT_DIRECTORY}${FILETYPE}); do
+    FILEDATE=`echo $f | sed -e 's/[^0-9]//g'`
+
+    if [ -f ${INPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.txt ]; then
+      pre_process
+      convert
+      echo ${CONVERT_FILE_OUTPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.csv is created.
+    else
+      echo ${INPUT_DIRECTORY}${FILETYPE}/$(filename_prefix)${FILEDATE}.txt is does not exist.
+    fi
+  done
 }
 
 cat <<EOS
 
-Filetype? (ex. Ks)
+Filetype? (ex. Ukc)
 
 以下のファイルタイプが選択できます。
 ===================================
@@ -78,18 +82,10 @@ JRDB 番組データ  : Bac
 JRDB 登録馬データ: Kta
 JRDB 馬基本データ: Ukc
 JRDB 競争馬データ: Kyi
-JRDB 成績データ  : Sed
+JRDB 成績データ  : Sed 
 ===================================
 EOS
 
 read FILETYPE
-
-cat <<EOS
-
-Filedate? (ex. 220319)
-yymmdd の形式で入力してください。
-EOS
-
-read FILEDATE
 
 main

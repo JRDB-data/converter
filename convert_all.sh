@@ -1,7 +1,7 @@
 #!/bin/sh
 
 FILEDATE=$1
-FILETYPES=("Ks" "Bac" "Kta" "Ukc" "Kyi")
+FILETYPES=("Ks" "Kab" "Bac" "Kta" "Ukc" "Kyi" "Sed")
 
 cat <<EOS
 
