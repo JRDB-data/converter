@@ -38,7 +38,7 @@ brew install direnv
 
 ## 以下 zsh, .zshrc は自分が使用しているシェルに合わせて適宜変更してください。
 echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc
-soruce ~/.zshrc
+source ~/.zshrc
 ```
 
 .env ファイルを作成して環境変数を定義してください。
